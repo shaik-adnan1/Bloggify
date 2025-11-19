@@ -1,7 +1,7 @@
 body {
   margin: 0;
   font-family: system-ui, sans-serif;
-  background-color: #f7f7f7;
+  background: #f7f7f7;
   color: #111;
 }
 
@@ -11,6 +11,11 @@ body {
   padding: 0 20px;
 }
 
+.page-title {
+  font-size: 2rem;
+  margin-bottom: 24px;
+}
+
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -18,25 +23,28 @@ body {
 }
 
 .card {
-  background: #fff;
-  border-radius: 12px;
+  background: #ffffff;
+  border-radius: 14px;
   overflow: hidden;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
-  transition: scale 0.2s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
 }
 
 .card:hover {
-  scale: 1.02;
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: 0 8px 28px rgba(0,0,0,0.12);
 }
 
-.card img {
+.card-img {
   width: 100%;
   height: 200px;
   object-fit: cover;
+  display: block;
 }
 
 .card-content {
-  padding: 16px;
+  padding: 18px;
 }
 
 .author {
@@ -45,23 +53,64 @@ body {
   margin-bottom: 8px;
 }
 
+.title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
 .title {
-  font-size: 1.2rem;
+  font-size: 1.15rem;
   font-weight: 600;
-  margin-bottom: 6px;
+  line-height: 1.2;
+  margin: 0;
+  color: #0f172a;
+  flex: 1;
+  margin-right: 8px;
+  word-break: break-word;
+}
+
+.title-arrow {
+  display: inline-block;
+  color: #6b7280;
+  transform: rotate(14deg);
+  width: 20px;
+  height: 20px;
+  flex: 0 0 20px;
+  transition: transform 0.12s ease, color 0.12s ease;
+  margin-left: 6px;
+}
+
+.title-row:hover .title-arrow {
+  transform: rotate(14deg) translateY(-2px);
+  color: #111827;
+}
+
+.title-arrow path {
+  stroke-width: 2.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 .desc {
   font-size: 0.95rem;
   color: #555;
-  margin-bottom: 12px;
+  margin: 10px 0 14px 0;
 }
 
-.tags span {
+.tags {
+  margin-top: 6px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.tag {
   display: inline-block;
-  margin-right: 10px;
-  color: #6a5bdc;
-  font-size: 0.85rem;
-  font-weight: 500;
-  cursor: pointer;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  background: rgba(0,0,0,0.04);
 }
